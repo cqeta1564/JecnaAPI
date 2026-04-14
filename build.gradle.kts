@@ -19,6 +19,9 @@ allprojects {
 kotlin {
     jvm()
     linuxX64()
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
     js {
         browser {
             testTask { enabled = false }
@@ -51,6 +54,9 @@ kotlin {
         }
         nativeMain.dependencies {
             runtimeOnly(libs.ktor.client.engine.curl)
+        }
+        iosMain.dependencies {
+            runtimeOnly(libs.ktor.client.engine.darwin)
         }
         webMain.dependencies {
             runtimeOnly(libs.ktor.client.engine.js)
